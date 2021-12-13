@@ -4,7 +4,8 @@
 
 @section('content')
     <div class="box">
-        <form action="" method="post">
+        <form action="{{ route('movies.store') }}" method="post">
+            @csrf
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">
@@ -26,16 +27,17 @@
             <div class="field">
                 <label class="label">resumé</label>
                 <div class="control">
-                <input name="title" class="input" type="text" placeholder="Text input">
+                <input name="review" class="input" type="text" placeholder="Text input">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Pays</label>
                 <div class="control">
                     <div class="select">
-                    <select name="country">
-                        <option>Exemple 1</option>
-                        <option>Exemple 2</option>
+                    <select name="country_id">
+                        @foreach ($countries as $country)
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                        @endforeach
                     </select>
                     </div>
                 </div>
@@ -44,9 +46,10 @@
                 <label class="label">Genre</label>
                 <div class="control">
                     <div class="select">
-                    <select name="genre">
-                        <option>Exemple 1</option>
-                        <option>Exemple 2</option>
+                    <select name="genre_id">
+                        @foreach ($genres as $genre)
+                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                        @endforeach
                     </select>
                     </div>
                 </div>
