@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SerieController;
+use App\Http\Controllers\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 /*Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
 // redirect to movies page
 Route::redirect('/', '/movies');
@@ -23,11 +25,15 @@ Route::redirect('/', '/movies');
 // display movies page
 Route::get('/movies', [
     'App\Http\Controllers\MovieController',
-    'index'
-])->name('movies_index');
+    'create'
+])->name('movies.create');
 
 // display series page
 Route::get('/series', [
     'App\Http\Controllers\SerieController',
-    'index'
-])->name('series_index');
+    'create'
+])->name('series.create'); */
+
+# https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller
+Route::resource('movies', MovieController::class);
+Route::resource('series', SerieController::class);

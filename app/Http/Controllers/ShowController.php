@@ -2,31 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genre;
-use App\Models\Movie;
-use App\Models\Country;
 use Illuminate\Http\Request;
 
-class MovieController extends Controller
+class ShowController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $movies = Movie::all();
-        return view('movie.index', [
-            "movies" => $movies
-        ]);
+        return view('show.index');
     }
-     /**
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('movie.create', [
-            "countries" => Country::all(),
-            "genres" => Genre::all()
-        ]);
+        //
     }
 
     /**

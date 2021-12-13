@@ -1,33 +1,30 @@
 @extends('layout.base')
 
-@section('title', 'Movies')
+@section('title', 'Films')
 
 @section('content')
-    <div class="box is-centered">
-        <h1 class="title has-text-centered">All my movies!</h1>
-        <div class="section">
-            <a href="#" class="button is-primary">Sort By genre</a>
-            <a href="#" class="button is-primary">Sort By country</a>
-        </div>
-        <table class="table is-bordered is-stripped is-hoverable">
-            <thead class="table-header">
-                <tr>
-                    <th class="has-text-primary-dark">Title</th>
-                    <th class="has-text-primary-dark">Year</th>
-                    <th class="has-text-primary-dark">Stars</th>
-                    <th class="has-text-primary-dark">Review</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($movies as $movie)
-                <tr>
-                    <th>{{ $movie->title }}</th>
-                    <th>{{ $movie->year }}</th>
-                    <th>{{ $movie->stars }}</th>
-                    <th>{{ $movie->review }}</th>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Année</th>
+            <th>Moyenne</th>
+            <th>Resumé</th>
+            <th>Pays</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ( $movies as $movie )
+            <tr>
+                <td>{{ $movie->title }}</td>
+                <td>{{ $movie->year }}</td>
+                <td>{{ $movie->stars }}</td>
+                <td>{{ $movie->review }}</td>
+                <td>{{ $movie->country->name }}</td>
+                <td>{{ $movie->genre->name }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
 @endsection

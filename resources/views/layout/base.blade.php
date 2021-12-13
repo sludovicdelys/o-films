@@ -2,30 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <title>@yield('title')</title>
 </head>
 <body>
     <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a href="{{ route('movies_index') }}" class="navbar-item has-text-primary-dark">
-                  Movies
+                <div class="navbar-start">
+                <a href="{{ route('movies.index') }}" class="navbar-item has-text-primary-dark">
+                    Films
                 </a>
-                <a href="{{ route('series_index') }}" class="navbar-item has-text-primary-dark">
-                  Series
+                <a href="{{ route('movies.create') }}" class="navbar-item has-text-primary-dark">
+                    Inserer un film
                 </a>
-              </div>
+                <a href="{{ route('series.index') }}" class="navbar-item has-text-primary-dark">
+                    Series
+                </a>
+                </div>
             </div>
-          </nav>
+        </nav>
     </header>
-    <main>
-      @yield('content')
-    </main>
-    <footer></footer>
+    @yield('content')
 </body>
 </html>
