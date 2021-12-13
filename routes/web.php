@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// redirect to movies page
+Route::redirect('/', '/movies');
+
+// display movies page
+Route::get('/movies', [
+    'App\Http\Controllers\MovieController',
+    'index'
+])->name('movies_index');
+
+// display series page
+Route::get('/series', [
+    'App\Http\Controllers\SerieController',
+    'index'
+])->name('series_index');
