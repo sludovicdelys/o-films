@@ -13,9 +13,15 @@ class CreateSerieTable extends Migration
      */
     public function up()
     {
-        Schema::create('serie', function (Blueprint $table) {
+        Schema::create('series', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title')->unique();
+            $table->date('year');
+            $table->integer('seasons');
+            $table->integer('episodesPerSeason');
+            $table->smallInteger('stars');
+            $table->string('review');
         });
     }
 
@@ -26,6 +32,6 @@ class CreateSerieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('serie');
+        Schema::dropIfExists('series');
     }
 }
