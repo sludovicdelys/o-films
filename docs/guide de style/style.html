@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- <Librairie CSS> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- </Librairie CSS> -->
+
+    <title>Guide de style</title>
+</head>
+<body>
+    <div class="box">
+        <h1 class="is-centered is-size-1">Guide de style</h1>
+    </div>
+    <div class="box">
+        <h2 class="is-size-2">Menu</h2>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                <a href="#" class="navbar-item has-text-primary-dark">
+                    Menu : Element 1
+                </a>
+                <a href="#" class="navbar-item has-text-primary-dark">
+                    Menu : Element 2
+                </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="box">
+        <h2 class="is-size-2">Carte de contenu</h2>
+        <div class="card">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4">Exemple de carte</p>
+                        <p class="subtitle is-6">Un sous-titre</p>
+                    </div>
+                </div>
+            
+                <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris. 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <h2 class="is-size-2">Formulaire</h2>
+        <form action="" method="get">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Text input">
+                </div>
+              </div>
+              
+              <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                  <input class="input is-success" type="text" placeholder="Text input" value="F0F">
+                </div>
+                <p class="help is-success">This username is available</p>
+              </div>
+              
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <input class="input is-danger" type="email" placeholder="Email input" value="hello@f0f">
+                </div>
+                <p class="help is-danger">This email is invalid</p>
+              </div>
+              
+              <div class="field">
+                <label class="label">Subject</label>
+                <div class="control">
+                  <div class="select">
+                    <select>
+                      <option>Select dropdown</option>
+                      <option>With options</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                  <textarea class="textarea" placeholder="Textarea"></textarea>
+                </div>
+              </div>
+              
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    I agree to the <a class="has-text-primary" href="#">terms and conditions</a>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="field">
+                <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="question">
+                    Yes
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="question">
+                    No
+                  </label>
+                </div>
+              </div>
+              
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary">Soumettre</button>
+                </div>
+              </div>
+        </form>
+    </div>
+    <div class="box">
+      <div class="is-flex is-flex-direction-row is-justify-content-flex-start">
+        <form action="">
+          <button class="button is-primary is-light" type="submit">Trier par colonne 1</button>
+        </form>
+        <form action="">
+          <button class="button is-primary is-light" type="submit">Trier par colonne 2</button>
+        </form>
+        <form action="">
+          <button class="button is-primary" type="submit">Nouvel élément</button>
+        </form>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Colonne 1</th>
+            <th>Colonne 1</th>
+            <th>Supprimer</th>
+            <th>Updater</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Valeur 1
+            </td>
+            <td>
+              Valeur 2
+            </td>
+            <td>
+              <form action="">
+                <button class="button is-danger" type="submit">Supprimer</button>
+              </form>
+            </td>
+            <td>
+              <form action="">
+                <button class="button is-warning" type="submit">Updater</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>

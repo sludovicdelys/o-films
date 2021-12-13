@@ -1,0 +1,33 @@
+@startuml
+
+entity Genre {
+    * name
+}
+
+entity Movie {
+    * title
+    year
+    stars
+    review
+}
+
+entity Serie {
+    * title
+    year
+    seasons
+    episodesPerSeason
+    stars
+    review
+}
+
+entity Country {
+    * isocode
+    * name
+}
+
+Genre ||--o{ Movie
+Genre ||--o{ Serie
+Country |o--o{ Movie
+Country |o--o{ Serie
+
+@enduml
