@@ -91,7 +91,7 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Serie $id)
+    public function edit(Serie $serie)
     {
         return view('serie.create', [
             "countries" => Country::all(),
@@ -120,7 +120,7 @@ class SerieController extends Controller
      */
     public function destroy($id)
     {
-        Movie::destroy($id);
+        Serie::destroy($id);
 
         return redirect('series');
     }
