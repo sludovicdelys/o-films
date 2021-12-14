@@ -12,6 +12,8 @@
             <th>Resumé</th>
             <th>Pays</th>
             <th>Genre</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +25,16 @@
                 <td>{{ $movie->review }}</td>
                 <td>{{ $movie->country->name }}</td>
                 <td>{{ $movie->genre->name }}</td>
+                <td><a href="{{ route('movies.edit', [
+                    'movie' => $movie->id
+                ]) }}">Update</a></td>
+                <td>
+                    <form action="{{ route('movies.destroy', ['movie' => $movie->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button is-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </tbody>

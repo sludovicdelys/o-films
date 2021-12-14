@@ -25,7 +25,8 @@ class MovieController extends Controller
     {
         return view('movie.create', [
             "countries" => Country::all(),
-            "genres" => Genre::all()
+            "genres" => Genre::all(),
+            "movie" => new Movie()
         ]);
     }
 
@@ -36,8 +37,31 @@ class MovieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $movie = new Movie();
+    {   
+        // On valide le formulaire 
+        // https://laravel.com/docs/8.x/validation#quick-writing-the-validation-logic
+        $request->validate([
+            'title' => 'required',
+            'year' => 'required|numeric',
+            'stars' => 'required|numeric',
+            'review' => 'required|min:20',
+            'country_id' => 'required|exists:countries,id',
+            'genre_id' => 'required|exists:genres,id'
+        ]);
+
+        
+        if ($request->id !== null) {
+            $movie = Movie::find($request->id) ?? new Movie();
+        } else {
+            $movie = new Movie();
+        }
+        
+        // On doit vérifier si la requete contient un id 
+
+        // Si elle contient un id, on est sur un update
+
+        // Si elle ne contient pas un id, on est sur un insert
+          
         $movie->title = $request->title;
         $movie->year = $request->year;
         $movie->stars = $request->stars;
@@ -66,9 +90,13 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movie $movie)
     {
-        //
+        return view('movie.create', [
+            "countries" => Country::all(),
+            "genres" => Genre::all(),
+            "movie" => $movie
+        ]);
     }
 
     /**
@@ -91,6 +119,8 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Movie::destroy($id);
+
+        return redirect('movies');
     }
 }
