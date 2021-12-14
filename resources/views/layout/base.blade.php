@@ -18,6 +18,9 @@
                 <a href="{{ route('movies.create') }}" class="navbar-item has-text-primary-dark">
                     Inserer un film
                 </a>
+                <a href="{{ route('series.create') }}" class="navbar-item has-text-primary-dark">
+                    Inserer une série
+                </a>
                 <a href="{{ route('series.index') }}" class="navbar-item has-text-primary-dark">
                     Series
                 </a>
