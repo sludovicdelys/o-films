@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -20,30 +21,15 @@ class UserSeeder extends Seeder
                 
                 'name' => "Amon",
                 'email' => "amon@oclock.com",
-                'password' => "imblackandimcute",
+                'password' => Hash::make('imblackandimcute'),
 
             ],
             [
                 
                 'name' => "Anuk",
                 'email' => "anuk@oclock.com",
-                'password' => "imgreyandimhandsome",
+                'password' => Hash::make('imgreyandimhandsome'),
             ],
         ]);
     }
-
-    /**
-     * Update the password for the user 
-     * 
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
-    {
-        // Validate the new password lenth...
-
-        $request->user()->fill([
-            'password' => Hash::make($request->newPassword)
-        ])->save();
-    } 
 }
