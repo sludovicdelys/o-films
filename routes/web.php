@@ -34,6 +34,10 @@ Route::get('/series', [
     'create'
 ])->name('series.create'); */
 
+Route::get('login', function () {
+    return view('auth.login');
+});
+
 # https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller
 Route::resource('movies', MovieController::class);
 Route::resource('series', SerieController::class);
