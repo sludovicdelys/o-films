@@ -35,8 +35,6 @@ Route::get('/login', [
     'create'
 ])->name('series.create'); */
 
-Route::post('login', [AuthController::class, 'login']);
-
 # https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller
 Route::resource('movies', MovieController::class);
 Route::resource('series', SerieController::class);
@@ -44,3 +42,5 @@ Route::resource('series', SerieController::class);
 Route::get('login', function () {
     return view('auth.login');
 })->name('auth.login');
+
+Route::post('login', [AuthController::class, 'login'])->name('auth.login.action');

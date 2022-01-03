@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="columns  is-centered">
-    <form action="/auth/login" method="POST" class="box column is-one-third">
+    <form action="{{ route('auth.login.action') }}" method="POST" class="box column is-one-third">
         @foreach ($errors->all() as $error)
         <article class="message is-small is-danger">
             <div class="message-body">
