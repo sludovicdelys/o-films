@@ -39,6 +39,9 @@ Route::get('/login', [
 Route::resource('movies', MovieController::class);
 Route::resource('series', SerieController::class);
 
+// Definir les routes reservées aux utilisateurs connectés
+Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+
 Route::get('login', function () {
     return view('auth.login');
 })->name('auth.login');

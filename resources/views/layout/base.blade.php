@@ -27,6 +27,12 @@
                 <a href="{{ route('auth.login') }}" class="navbar-item has-text-primary-dark">
                     Login
                 </a>
+                <a href="{{ route('auth.logout') }}" class="navbar-item has-text-primary-dark">
+                    Logout
+                </a>
+                @auth
+                    <p>{{ auth()->user()->name }}</p>
+                @endauth
                 </div>
             </div>
         </nav>
