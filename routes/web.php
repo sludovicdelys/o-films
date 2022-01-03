@@ -28,8 +28,8 @@ Route::get('/movies', [
     'create'
 ])->name('movies.create');
 
-// display series page
-Route::get('/series', [
+// display login page
+Route::get('/login', [
     'App\Http\Controllers\SerieController',
     'create'
 ])->name('series.create'); */

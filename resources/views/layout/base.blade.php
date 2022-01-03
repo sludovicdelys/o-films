@@ -24,9 +24,6 @@
                 <a href="{{ route('series.index') }}" class="navbar-item has-text-primary-dark">
                     Series
                 </a>
-                <a href="{{ route('login.index') }}" class="navbar-item has-text-primary-dark">
-                    Login
-                </a>
                 </div>
             </div>
         </nav>
