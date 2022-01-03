@@ -43,4 +43,4 @@ Route::resource('series', SerieController::class);
 
 Route::get('login', function () {
     return view('auth.login');
-});
+})->name('auth.login');
