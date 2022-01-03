@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +35,12 @@ Route::get('/login', [
     'create'
 ])->name('series.create'); */
 
-Route::get('login', function () {
-    return view('auth.login');
-});
+Route::post('login', [AuthController::class, 'login']);
 
 # https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller
 Route::resource('movies', MovieController::class);
 Route::resource('series', SerieController::class);
+
+Route::get('login', function () {
+    return view('auth.login');
+});

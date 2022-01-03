@@ -1,32 +1,35 @@
-@extends('layout.base')
+@@extends('layout.base')
 
-@section('title', 'Login')
+@section('title', 'Connexion')
 
 @section('content')
-<div class="field">
-    <p class="control has-icons-left has-icons-right">
-        <input class="input" type="email" placeholder="Email">
-        <span class="icon is-small is-left">
-        <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-right">
-        <i class="fas fa-check"></i>
-        </span>
-    </p>
-</div>
-<div class="field">
-    <p class="control has-icons-left">
-      <input class="input" type="password" placeholder="Password">
-      <span class="icon is-small is-left">
-        <i class="fas fa-lock"></i>
-      </span>
-    </p>
-</div>
-<div class="field">
-    <p class="control">
-      <button class="button is-success">
-        Login
-      </button>
-    </p>
+<div class="columns  is-centered">
+    <form action="" method="POST" class="box column is-one-third">
+        @foreach ($errors->all() as $error)
+        <article class="message is-small is-danger">
+            <div class="message-body">
+                <p>{{ $error }}</p>
+            </div>
+        </article>
+        @endforeach
+        @csrf
+        <div class="field">
+            <label for="email" class="label">Email</label>
+            <div class="control ">
+                <input type="email" name="email" id="email" placeholder="Ex: nicole@oclock.io" class="input" value="{{ old('email') }}" required>
+            </div>
+        </div>
+        <div class="field">
+            <label for="password" class="label">Password</label>
+            <div class="control">
+                <input type="password" name="password" id="password" class="input" required>
+            </div>
+        </div>
+        <div class="field">
+            <button class="button is-success">
+                Login
+            </button>
+        </div>
+    </form>
 </div>
 @endsection
