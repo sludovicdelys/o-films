@@ -47,3 +47,7 @@ Route::get('login', function () {
 })->name('auth.login');
 
 Route::post('login', [AuthController::class, 'login'])->name('auth.login.action');
+
+Route::get('form', function () {
+    return view('serie.form');
+})->name('serie.form');
