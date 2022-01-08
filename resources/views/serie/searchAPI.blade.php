@@ -37,6 +37,8 @@
         <td>{{ $result['release_date'] }}</td>
         <td><a href="{{ route('shows.create', ['betaseries_id' => $result['id']]) }}" class="button is-primary">Importer la série</a></td>
       </tr>
+      @endforeach
   </tbody>
 </table>
+@endif
 @endsection
