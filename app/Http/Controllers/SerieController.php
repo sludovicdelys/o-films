@@ -149,7 +149,7 @@ class SerieController extends Controller
 
             // On renvoie la view avec les données nécessaires
             return view('serie.searchAPI', [
-                'results' => $apiData['shows']
+                'results' => $apiData['shows'] // On a identifié que le tableau de reésultats que l'on cherche se trouve dans la clé "shows"
             ]);
         }
         // Si on n'a pas de recherce, on renvoie la view du formulaire de recherche sans données
