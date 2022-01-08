@@ -24,13 +24,16 @@
                 <a href="{{ route('series.index') }}" class="navbar-item has-text-primary-dark">
                     Series
                 </a>
-                <a href="{{ route('auth.login') }}" class="navbar-item has-text-primary-dark">
-                    Login
-                </a>
-                <a href="{{ route('auth.logout') }}" class="navbar-item has-text-primary-dark">
-                    Logout
-                </a>
+                @guest
+                    <a href="{{ route('auth.login') }}" class="navbar-item has-text-primary-dark">
+                        Login
+                    </a>
+                @endguest
+                
                 @auth
+                    <a href="{{ route('auth.logout') }}" class="navbar-item has-text-primary-dark">
+                        Logout
+                    </a>
                     <p>{{ auth()->user()->name }}</p>
                 @endauth
                 </div>

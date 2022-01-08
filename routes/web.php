@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,12 @@ Route::get('/login', [
 ])->name('series.create'); */
 
 # https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller
-Route::resource('movies', MovieController::class);
-Route::resource('series', SerieController::class);
+
+// On définit les routes accessibles à tout le monde 
+
+// Génère toutes les routes qui sont liées à la ressource 'movies', par contre ne me génère que 'index' et 'show'
+Route::resource('movies', MovieController::class, ['only' => ['index', 'show']]);
+Route::resource('series', SerieController::class, ['only' => ['index', 'show']]);
 
 // Definir les routes reservées aux utilisateurs connectés
 Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
@@ -51,3 +56,4 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.login.action'
 Route::get('form', function () {
     return view('serie.form');
 })->name('serie.form');
+
