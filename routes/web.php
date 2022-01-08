@@ -28,11 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
 
     // Les utilisateurs connectés ont accès à tout sauf à index et à show
-    Route::resource('movies', MovieController::class);
-    Route::resource('series', SerieController::class);
+    Route::resource('movies', MovieController::class)->except(['index', 'show']);
+    Route::resource('series', SerieController::class)->except(['index', 'show']);
 
     // Cette route renvoie vers la méthode searchApi qui se trouve dans mon ShowController
-    Route::get('/shows/searchApi', [ShowController::class, 'searchApi'])->name('shows.searchApi');
+    Route::get('/series/searchApi', [ShowController::class, 'searchApi'])->name('series.searchApi');
 });
 
 // Définir les routes réservées aux utilisateurs non-connectés 
@@ -48,7 +48,7 @@ Route::middleware('guest')->group(function () {
 // Génère toutes les routes qui sont liées à la ressource 'movies', par contre ne me génère que les routes'index' et 'show'.
 // Attention a bien les mettre en bas du fichier de route pour eviter les problemes de priorités de routes
 Route::resource('movies', MovieController::class)->only(['index', 'show']);
-Route::resource('shows', ShowController::class)->only(['index', 'show']);
+Route::resource('series', SerieController::class)->only(['index', 'show']);
 
 
 
