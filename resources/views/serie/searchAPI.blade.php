@@ -10,7 +10,7 @@
   <div class="field">
       <label class="label">Nom de la série</label>
       <div class="control">
-        <input class="input" type="text" placeholder="Text input">
+        <input class="input" type="text" name="name" placeholder="Nom de la série" autocomplete="off">
       </div>
   </div>
   <div class="field">
@@ -35,7 +35,7 @@
         <td style="width: 15%;"><img src="{{ $result['poster'] }}" class="image" /></td>
         <td>{{ $result['title'] }}</td>
         <td>{{ $result['release_date'] }}</td>
-        <td><a href="{{ route('shows.create', ['betaseries_id' => $result['id']]) }}" class="button is-primary">Importer la série</a></td>
+        <td><a href="{{ route('series.create', ['betaseries_id' => $result['id']]) }}" class="button is-primary">Importer la série</a></td>
       </tr>
       @endforeach
   </tbody>

@@ -31,6 +31,9 @@
                 @endguest
                 
                 @auth
+                    <a href="{{ route('series.searchApi') }}" class="navbar-item has-text-primary-dark">
+                        Ajouter une série
+                    </a>
                     <a href="{{ route('auth.logout') }}" class="navbar-item has-text-primary-dark">
                         Logout
                     </a>

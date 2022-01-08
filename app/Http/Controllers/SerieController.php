@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
-use App\Models\Country;
 use App\Models\Serie;
+use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class SerieController extends Controller
 {
@@ -123,5 +124,35 @@ class SerieController extends Controller
         Serie::destroy($id);
 
         return redirect('series');
+    }
+
+    /**
+     * Connects to the BetaSeries API and returns a lit of results 
+     */
+    public function searchApi(Request $request)
+    {
+        // Si on a une recherche, on fait un appel à l'API
+        if ($request->has('name')) {
+            // Pour commencer on valide les données du formulaire 
+            $request->validate([
+                'name' => 'max:255'
+            ]);
+
+            // Si le contenu de la recherche est validé on peut faire l'appel à l'API avec la facade Http de Laravel
+            $apiResponse = Http::get('https://api.betaseries.com/search/shows', [
+                'key' => env('BETASERIES_API_KEY'),
+                'text'=>$request->name
+            ]);
+
+            // Ici on extrait les données de la réponse
+            $apiData = $apiResponse->json();
+
+            // On renvoie la view avec les données nécessaires
+            return view('serie.searchAPI', [
+                'results' => $apiData['shows']
+            ]);
+        }
+        // Si on n'a pas de recherce, on renvoie la view du formulaire de recherche sans données
+        return view('serie.searchAPI');
     }
 }

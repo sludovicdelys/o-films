@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('series', SerieController::class)->except(['index', 'show']);
 
     // Cette route renvoie vers la méthode searchApi qui se trouve dans mon ShowController
-    Route::get('/series/searchApi', [ShowController::class, 'searchApi'])->name('series.searchApi');
+    Route::get('/series/searchApi', [SerieController::class, 'searchApi'])->name('series.searchApi');
 });
 
 // Définir les routes réservées aux utilisateurs non-connectés 
