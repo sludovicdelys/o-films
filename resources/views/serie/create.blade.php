@@ -31,31 +31,31 @@
             <div class="field">
                 <label class="label">Année de sortie</label>
                 <div class="control">
-                    <input value="{{ old('year'), $serie->year }}" name="year" class="input" type="year" placeholder="Text input">
+                    <input value="{{ old('year', $serie->year )}}" name="year" class="input" type="year" placeholder="Text input">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Saisons</label>
                 <div class="control">
-                    <input value="{{ old('seasons'), $serie->seasons }}" name="seasons" min="0" max="5" class="input" type="number" placeholder="Text input">
+                    <input value="{{ old('seasons', $serie->seasons )}}" name="seasons" min="0" max="5" class="input" type="number" placeholder="Text input">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Episodes par Saison</label>
                 <div class="control">
-                    <input value="{{ old('episodesPerSeason'), $serie->episodesPerSeason }}" name="episodesPerSeason" min="0" max="5" class="input" type="number" placeholder="Text input">
+                    <input value="{{ old('episodesPerSeason', $serie->episodesPerSeason )}}" name="episodesPerSeason" min="0" max="10" class="input" type="number" placeholder="Text input">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Moyenne</label>
                 <div class="control">
-                <input value="{{ old('stars'), $serie->stars }}" name="stars" min="0" max="5" class="input" type="number" placeholder="Text input">
+                <input value="{{ old('stars', $serie->stars )}}" name="stars" min="0" max="5" class="input" type="number" placeholder="Text input">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Resumé</label>
                 <div class="control">
-                    <input value="{{ old('review'), $serie->review }}" name="review" class="input" type="text" placeholder="Text input">
+                    <input value="{{ old('review', $serie->review )}}" name="review" class="input" type="text" placeholder="Text input">
                 </div>
             </div>
             <div class="field">
