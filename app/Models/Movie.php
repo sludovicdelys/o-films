@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
+    use HasFactory;
+    
     // https://laravel.com/docs/8.x/eloquent-relationships#defining-relationships
     public function genre()
     {
