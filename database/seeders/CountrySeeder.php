@@ -40,6 +40,7 @@ class CountrySeeder extends Seeder
                 'isocode' => "ISO 3166-2:US",
                 'name' => "The United States of America",
             ],
+            
         ]);
     }
 }

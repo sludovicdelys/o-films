@@ -12,7 +12,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view('movie.index', [
+        return view('movie/index', [
             "movies" => $movies
         ]);
     }
@@ -23,10 +23,10 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('movie.create', [
-            "countries" => Country::all(),
+        return view('movie/create', [
+            "movie" => new Movie(),
             "genres" => Genre::all(),
-            "movie" => new Movie()
+            "countries" => Country::all(),
         ]);
     }
 
@@ -48,12 +48,13 @@ class MovieController extends Controller
             'country_id' => 'required|exists:countries,id',
             'genre_id' => 'required|exists:genres,id'
         ]);
-
         
-        if ($request->id !== null) {
-            $movie = Movie::find($request->id) ?? new Movie();
-        } else {
+        $id = $request->input("id");
+        
+        if ($id == "") {
             $movie = new Movie();
+        } else {
+            $movie = Movie::find($id);
         }
         
         // On doit vérifier si la requete contient un id 
@@ -70,7 +71,7 @@ class MovieController extends Controller
         $movie->genre_id = $request->genre_id;
         $movie->save();
 
-        return redirect()->route('movies.index');
+        return redirect()->route('movies');
     }
 
     /**
@@ -90,25 +91,16 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movie $movie)
+    public function edit($id)
     {
-        return view('movie.create', [
-            "countries" => Country::all(),
-            "genres" => Genre::all(),
-            "movie" => $movie
-        ]);
-    }
+        $movie = Movie::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        // appel la view formulaire en envoyant la liste des genres et des pays
+        return view('movie/edit', [
+            'movie' => $movie,
+            'genres' => Genre::all(),
+            'countries' => Country::all()
+        ]);
     }
 
     /**

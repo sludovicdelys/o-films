@@ -24,6 +24,12 @@ class GenreSeeder extends Seeder
             ],
             [
                 'name' => "Aventure",
+            ],
+            [
+                'name' => "Fiction",
+            ],
+            [
+                'name' => "Historique",
             ]
         ]);
     }
