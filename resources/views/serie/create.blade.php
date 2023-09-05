@@ -25,37 +25,45 @@
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">
-                    <input value="{{ old('title', $serie->title) }}" name="title" class="input" type="text" placeholder="Text input">
+                    <input value="{{ old('title', $serie->title) }}" name="title" class="input" type="text" placeholder="titre de la série">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Année de sortie</label>
                 <div class="control">
-                    <input value="{{ old('year', $serie->year )}}" name="year" class="input" type="year" placeholder="Text input">
+                    <input value="{{ old('year', $serie->year )}}" name="year" class="input" type="year" placeholder="année de sortie de la série">
                 </div>
             </div>
             <div class="field">
-                <label class="label">Saisons</label>
+                <label class="label">Nombre de saisons</label>
                 <div class="control">
-                    <input value="{{ old('seasons', $serie->seasons )}}" name="seasons" min="0" max="5" class="input" type="number" placeholder="Text input">
+                    <input value="{{ old('seasons', $serie->seasons )}}" name="seasons" min="0" max="5" class="input" type="number" placeholder="nombre de saisons">
                 </div>
             </div>
             <div class="field">
-                <label class="label">Episodes par Saison</label>
+                <label class="label">Nombre d'épisodes par saison</label>
                 <div class="control">
-                    <input value="{{ old('episodesPerSeason', $serie->episodesPerSeason )}}" name="episodesPerSeason" min="0" max="10" class="input" type="number" placeholder="Text input">
+                    <input value="{{ old('episodesPerSeason', $serie->episodesPerSeason )}}" name="episodesPerSeason" min="0" max="10" class="input" type="number" placeholder="nombre d'épisodes par saison">
                 </div>
             </div>
             <div class="field">
-                <label class="label">Moyenne</label>
-                <div class="control">
-                <input value="{{ old('stars', $serie->stars )}}" name="stars" min="0" max="5" class="input" type="number" placeholder="Text input">
+                <label class="label">Note</label>
+                <div class="select">
+                    <select name="stars">
+                        <option>choisissez une note</option>
+                        <option value="0" {{ old('stars', $serie->stars) == 0 ? 'selected' : '' }}>0</option>
+                        <option value="1" {{ old('stars', $serie->stars) == 1 ? 'selected' : '' }}>1</option>
+                        <option value="2" {{ old('stars', $serie->stars) == 2 ? 'selected' : '' }}>2</option>
+                        <option value="3" {{ old('stars', $serie->stars) == 3 ? 'selected' : '' }}>3</option>
+                        <option value="4" {{ old('stars', $serie->stars) == 4 ? 'selected' : '' }}>4</option>
+                        <option value="5" {{ old('stars', $serie->stars) == 5 ? 'selected' : '' }}>5</option>
+                    </select>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Resumé</label>
                 <div class="control">
-                    <input value="{{ old('review', $serie->review )}}" name="review" class="input" type="text" placeholder="Text input">
+                    <input value="{{ old('review', $serie->review )}}" name="review" class="input" type="text" placeholder="résumé de la série">
                 </div>
             </div>
             <div class="field">
@@ -63,6 +71,8 @@
                 <div class="control">
                     <div class="select">
                         <select name="country_id">
+                            <option>choisissez un pays</option>
+
                             @foreach ($countries as $country)
                                 <option value="{{ $country->id }}" @if (old('country_id', $serie->country_id) == $country->id )
                                     selected
@@ -77,6 +87,8 @@
                 <div class="control">
                     <div class="select">
                         <select name="genre_id">
+                            <option>choisissez un genre</option>
+
                             @foreach ($genres as $genre)
                                 <option value="{{ $genre->id }}" @if (old('genre_id', $serie->genre_id) == $genre->id )
                                     selected

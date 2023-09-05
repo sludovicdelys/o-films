@@ -25,25 +25,33 @@
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">
-                <input value="{{ old('title', $movie->title) }}" name="title" class="input" type="text" placeholder="Text input">
+                <input value="{{ old('title', $movie->title) }}" name="title" class="input" type="text" placeholder="titre du film">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Année de sortie</label>
                 <div class="control">
-                <input value="{{ old('year'), $movie->year }}" name="year" class="input" type="year" placeholder="Text input">
+                <input value="{{ old('year'), $movie->year }}" name="year" class="input" type="year" placeholder="année de sortie du film">
                 </div>
             </div>
             <div class="field">
-                <label class="label">Moyenne</label>
-                <div class="control">
-                <input value="{{ old('stars'), $movie->stars }}" name="stars" min="0" max="5" class="input" type="number" placeholder="Text input">
+                <label class="label">Note</label>
+                <div class="select">
+                    <select name="stars">
+                        <option>choisissez une note</option>
+                        <option value="0" {{ old('stars', $movie->stars) == 0 ? 'selected' : '' }}>0</option>
+                        <option value="1" {{ old('stars', $movie->stars) == 1 ? 'selected' : '' }}>1</option>
+                        <option value="2" {{ old('stars', $movie->stars) == 2 ? 'selected' : '' }}>2</option>
+                        <option value="3" {{ old('stars', $movie->stars) == 3 ? 'selected' : '' }}>3</option>
+                        <option value="4" {{ old('stars', $movie->stars) == 4 ? 'selected' : '' }}>4</option>
+                        <option value="5" {{ old('stars', $movie->stars) == 5 ? 'selected' : '' }}>5</option>
+                    </select>
                 </div>
             </div>
             <div class="field">
-                <label class="label">resumé</label>
+                <label class="label">Resumé</label>
                 <div class="control">
-                <input value="{{ old('review'), $movie->review }}" name="review" class="input" type="text" placeholder="Text input">
+                <input value="{{ old('review'), $movie->review }}" name="review" class="input" type="text" placeholder="résumé du film">
                 </div>
             </div>
             <div class="field">
@@ -51,6 +59,8 @@
                 <div class="control">
                     <div class="select">
                         <select name="country_id">
+                            <option>choisissez un pays</option>
+
                             @foreach ($countries as $country)
                                 <option value="{{ $country->id }}" @if (old('country_id', $movie->country_id) == $country->id )
                                     selected
@@ -65,6 +75,8 @@
                 <div class="control">
                     <div class="select">
                         <select name="genre_id">
+                            <option>choisissez un genre</option>
+
                             @foreach ($genres as $genre)
                                 <option value="{{ $genre->id }}" @if (old('genre_id', $movie->genre_id) == $genre->id )
                                     selected
@@ -76,7 +88,10 @@
             </div>
             <div class="field is-grouped">
                 <div class="control">
-                <button class="button is-primary">Soumettre</button>
+                    <button class="button is-primary">Soumettre</button>
+                </div>
+                <div class="control">
+                    <button class="button is-primary">Annuler</button>
                 </div>
             </div>
         </form>
