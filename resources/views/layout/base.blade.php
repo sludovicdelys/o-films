@@ -8,44 +8,44 @@
     <title>@yield('title')</title>
 </head>
     <body>
-        <header>
-            <div class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
                 <a class="navbar-brand" href="#">O'films</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse d-flex-md justify-content-between" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a href="{{ route('movies.index') }}" class="nav-link">Films</a></li>
-                        <li class="nav-item"><a href="{{ route('movies.create') }}" class="nav-link ">Inserer un film</a></li>
-                        <li class="nav-item"><a href="{{ route('series.create') }}" class="nav-link">Inserer une série</a></li>
+                        @auth
+                            <li class="nav-item"><a href="{{ route('movies.create') }}" class="nav-link ">Inserer un film</a></li>
+                            <li class="nav-item"><a href="{{ route('series.create') }}" class="nav-link">Inserer une série</a></li>
+                        @endauth
                         <li class="nav-item"><a href="{{ route('series.index') }}" class="nav-link">Series</a></li>
                     </ul>
                     @guest
-                        <a href="{{ route('auth.login') }}" class="my-2 my-md-0 has-text-primary-dark">
+                        <a href="{{ route('auth.login') }}" class="nav-link my-2 my-md-0 has-text-primary-dark">
                             Login
                         </a>
                     @endguest
-                </div>
-                   
 
-                <ul class="menu_section">
                     @auth
-                    <button class="user-menu__button navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-                        <span>{{ auth()->user()->name }}</span>
-                    </button>
-
-                    <div class="navbar-collapse collapse" id="navbarsExample10">
-                        <ul class="user-menu__content">
-                            <li class="">Profile</li>
-                            <li class=""><a href="{{ route('auth.logout') }}" class="">Logout</a></li>
-                        </ul>
-                    </div> 
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Dropdown navigation">{{ auth()->user()->name }}</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="dropdown-item">Profile</a></li>
+                                <li><a href="{{ route('auth.logout') }}" class="dropdown-item">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>  
                     @endauth
-                </ul>
-            </div>
-        </header>
-        @yield('content')
+                </div>
+            </div>             
+        </nav>
+        <div class="container">
+            @yield('content')
+        </div>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
