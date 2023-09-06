@@ -44,9 +44,11 @@
         </div>             
     </nav>
     <main class="container">
-        <div class="container">
-            @yield('content')  
-        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                @yield('content')
+            </table>        
+        </div>   
     </main>
     <footer class="py-3 my-4">
         <div class="container">
