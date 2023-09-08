@@ -3,18 +3,17 @@
 @section('title', 'Films')
 
 @section('content')
-<div class="table-responsive border border-secondary border-1 rounded p-5">
-    <table class="table">
-        <thead class="table-light">
+<div class="table-responsive border border-secondary border-1 rounded">
+    <table class="table table-hover mb-0">
+        <thead class="table-dark">
             <tr>
-                <th scope="col">Titre</th>
-                <th scope="col">Année</th>
-                <th scope="col">Moyenne</th>
-                <th scope="col">Resumé</th>
-                <th scope="col">Pays</th>
-                <th scope="col">Genre</th>
+                <th class="align-middle" scope="col">Titre</th>
+                <th class="align-middle" scope="col">Année</th>
+                <th class="align-middle" scope="col">Moyenne</th>
+                <th class="align-middle" scope="col">Resumé</th>
+                <th class="align-middle" scope="col">Pays</th>
+                <th class="align-middle" scope="col">Genre</th>
                 @auth
-                    <th scope="col"></th>
                     <th scope="col"></th>
                 @endauth
             </tr>
@@ -22,17 +21,17 @@
         <tbody class="table-group-divider">
             @foreach ( $movies as $movie )
                 <tr>
-                    <td>{{ $movie->title }}</td>
-                    <td>{{ $movie->year }}</td>
-                    <td>{{ $movie->stars }}</td>
-                    <td>{{ $movie->review }}</td>
-                    <td>{{ $movie->country->name }}</td>
-                    <td>{{ $movie->genre->name }}</td>
+                    <td class="align-middle">{{ $movie->title }}</td>
+                    <td class="align-middle">{{ $movie->year }}</td>
+                    <td class="align-middle">{{ $movie->stars }}</td>
+                    <td class="align-middle">{{ $movie->review }}</td>
+                    <td class="align-middle">{{ $movie->country->name }}</td>
+                    <td class="align-middle">{{ $movie->genre->name }}</td>
                     @auth
-                    <td>
-                        <div class="dropwdown">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose an action">Choisir une action</button>
-                            <ul class="dropdown-menu">
+                    <td class="align-middle">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose an action">Actions</button>
+                            <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="{{ route('movies.edit', [
                                     'movie' => $movie->id

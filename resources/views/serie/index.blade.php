@@ -3,20 +3,19 @@
 @section('title', 'Series')
 
 @section('content')
-<div class="table-responsive border border-secondary border-1 rounded p-5">
-    <table class="table">
-        <thead class="table-light">
+<div class="table-responsive border border-secondary border-1 rounded">
+    <table class="table table-hover mb-0">
+        <thead class="table-dark">
             <tr>
-                <th scope="col">Titre</th>
-                <th scope="col">Année</th>
-                <th scope="col">Saisons</th>
-                <th scope="col">Episode par saison</th>
-                <th scope="col">Moyenne</th>
-                <th scope="col">Resumé</th>
-                <th scope="col">Pays</th>
-                <th scope="col">Genre</th>
+                <th class="align-middle" scope="col"><p>Titre</p></th>
+                <th class="align-middle" scope="col"><p>Année</p></th>
+                <th class="align-middle" scope="col"><p> Nombre de saisons</p></th>
+                <th class="align-middle" scope="col"><p>Nombre d'épisodes</p> </th>
+                <th class="align-middle" scope="col"><p>Moyenne</p></th>
+                <th class="align-middle" scope="col"><p>Resumé</p></th>
+                <th class="align-middle" scope="col"><p>Pays</p></th>
+                <th class="align-middle" scope="col"><p>Genre</p></th>
                 @auth
-                    <th scope="col"></th>
                     <th scope="col"></th>
                 @endauth
             </tr>
@@ -24,19 +23,19 @@
         <tbody class="table-group-divider">
             @foreach ( $series as $serie)
                 <tr>
-                    <td>{{ $serie->title }}</td>
-                    <td>{{ $serie->year }}</td>
-                    <td>{{ $serie->season }}</td>
-                    <td>{{ $serie->episodesPerSeason }}</td>
-                    <td>{{ $serie->stars }}</td>
-                    <td>{{ $serie->review }}</td>
-                    <td>{{ $serie->country->name }}</td>
-                    <td>{{ $serie->genre->name }}</td>
+                    <td class="align-middle">{{ $serie->title }}</td>
+                    <td class="align-middle">{{ $serie->year }}</td>
+                    <td class="align-middle">{{ $serie->season }}</td>
+                    <td class="align-middle">{{ $serie->episodesPerSeason }}</td>
+                    <td class="align-middle">{{ $serie->stars }}</td>
+                    <td class="align-middle">{{ $serie->review }}</td>
+                    <td class="align-middle">{{ $serie->country->name }}</td>
+                    <td class="align-middle">{{ $serie->genre->name }}</td>
                     @auth
-                        <td>
-                            <div class="dropwdown">
-                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose an action">Choisir une action</button>
-                                <ul class="dropdown-menu">
+                        <td class="align-middle">
+                            <div class="btn-group">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose an action">Actions</button>
+                                <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('series.edit', [
                                         'series' => $serie->id

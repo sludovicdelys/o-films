@@ -8,8 +8,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">O'films</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Dropdown navigation">{{ auth()->user()->name }}</a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-end">
                             <li><a href="#" class="dropdown-item">Profile</a></li>
                             <li><a href="{{ route('auth.logout') }}" class="dropdown-item">Logout</a></li>
                         </ul>
@@ -43,11 +43,13 @@
             </div>
         </div>             
     </nav>
-    <main class="container">
-        @yield('content')
+    <main>
+        <div class="container-fluid py-3 my-4">
+            @yield('content')
+        </div>
     </main>
-    <footer class="py-3 my-4">
-        <div class="container">
+    <footer>
+        <div class="container-fluid py-3 my-4">
             <p class="text-center text-muted">An experimental project crafted with dedication by Sabrina.</p>
         </div>
     </footer>
