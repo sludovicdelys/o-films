@@ -3,7 +3,7 @@
 @section('title', 'Films')
 
 @section('content')
-<div class="table-responsive border border-secondary border-1 rounded">
+<div class="table-responsive w-75 m-auto border border-secondary border-1 rounded">
     <table class="table table-hover mb-0">
         <thead class="table-dark">
             <tr>

@@ -25,7 +25,7 @@
                 </ul>
                 @guest
                     <a href="{{ route('auth.login') }}" class="nav-link my-2 my-md-0 has-text-primary-dark">
-                        Login
+                        Connexion
                     </a>
                 @endguest
 
@@ -34,7 +34,6 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Dropdown navigation">{{ auth()->user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a href="#" class="dropdown-item">Profile</a></li>
                             <li><a href="{{ route('auth.logout') }}" class="dropdown-item">Logout</a></li>
                         </ul>
                     </li>
