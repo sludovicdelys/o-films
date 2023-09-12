@@ -3,24 +3,22 @@
 @section('title', 'Connexion')
 
 @section('content')
-<div class="w-25 m-auto">
-    <form action="{{ route('auth.login.action') }}" method="POST" class="box column is-one-third">
+<div class="w-75 m-auto">
+    <form action="{{ route('auth.login.action') }}" method="POST">
         @foreach ($errors->all() as $error)
-        <article class="message is-small is-danger">
-            <div class="message-body">
-                <p>{{ $error }}</p>
-            </div>
-        </article>
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <span>{{ $error }}</span>
+        </div>
         @endforeach
         @csrf
         <h1 class="h3 mb-3 fw-normal">Connectez-vous</h1>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Ex: nicole@oclock.io" value="{{ old('email') }}" required>
+            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" value="{{ old('email') }}" required>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" id="password" required>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Connexion</button>
