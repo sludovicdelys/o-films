@@ -49,7 +49,10 @@
     </main>
     <footer>
         <div class="container-fluid py-3 my-4">
-            <p class="text-center text-muted">An experimental project crafted with dedication by Sabrina.</p>
+            <p class="text-center text-muted">An experimental project crafted with care by 
+                <a class="link-dark link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="https://github.com/sludovicdelys">Sabrina</a>
+                ©2023
+            </p>
         </div>
     </footer>
     <script src="{{ mix('js/app.js') }}"></script>
