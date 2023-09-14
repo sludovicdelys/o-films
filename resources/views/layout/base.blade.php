@@ -20,6 +20,7 @@
                     @auth
                         <li class="nav-item"><a href="{{ route('movies.create') }}" class="nav-link ">Inserer un film</a></li>
                         <li class="nav-item"><a href="{{ route('series.create') }}" class="nav-link">Inserer une série</a></li>
+                        <li class="nav-item"><a href="{{ route('series.searchApi') }}" class="nav-link">Importer une série</a></li>
                     @endauth
                     <li class="nav-item"><a href="{{ route('series.index') }}" class="nav-link">Series</a></li>
                 </ul>
