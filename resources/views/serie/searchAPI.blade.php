@@ -6,43 +6,45 @@
 <div class="py-5 text-center">
   <h2>Importer une série depuis BetaSeries</h2> 
 </div>
-<div class="row">
-  <div class="col-md-7 col-lg-8 m-auto">
-    <form action="" method="GET" class="row needs-validation" novalidate>
-      <div class="col-12 mb-3">
-        <label for="title" class="form-label">Nom de la série</label>
-        <input class="form-control" type="text" name="title" autocomplete="off" required>
-        <div class="invalid-feedback">Veuillez fournir un titre.</div>
-      </div>
-      <div class="col-12 mb-3">
-        <button type="submit" class="btn btn-secondary">Rechercher</button>
-      </div>
+<div class="w-50 m-auto">
+  <form action="" method="GET" class="row needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Nom de la série</label>
+      <input class="form-control" type="text" name="name" placeholder="Nom de la série" autocomplete="off" required>
+      <div class="invalid-feedback">Veuillez fournir un titre.</div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-secondary">Rechercher</button>
+    </div>
+  </form>
+</div>
+@if (isset($results))
+  <div class="table-responsive w-75 m-auto border border-secondary border-1 rounded">
+    <form action="" class="action">
+    <table class="table table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th class="align-middle" scope="col">Image</th>
+          <th class="align-middle" scope="col">Titre</th>
+          <th class="align-middle" scope="col">Année de sortie</th>
+          <th class="align-middle" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+          @foreach ($results as $result)
+          <tr>
+            <td class="align-middle"><img src="{{ $result['poster'] }}" class="img-fluid" style="width: 120px;" /></td>
+            <td class="align-middle">{{ $result['title'] }}</td>
+            <td class="align-middle">{{ $result['release_date'] }}</td>
+            <td class="align-middle">
+                <a href="{{ route('series.create', ['betaseries_id' => $result['id']]) }}" class="btn btn-secondary" role="button">Importer la série</a>
+            </td>
+          </tr>
+          @endforeach
+      </tbody>
+    </table>
     </form>
   </div>
-  <div class="col-md-7 col-lg-8 m-auto">
-      @if (isset($results))
-      <table class="table mb-0">
-        <thead class="table-dark">
-          <tr>
-            <th>Image</th>
-            <th>Titre</th>
-            <th>Année de sortie</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-            @foreach ($results as $result)
-              <tr>
-                <td style="width: 15%;"><img src="{{ $result['poster'] }}" class="image" /></td>
-                <td>{{ $result['title'] }}</td>
-                <td>{{ $result['release_date'] }}</td>
-                <td><a href="{{ route('series.create', ['betaseries_id' => $result['id']]) }}" class="button is-primary">Importer la série</a></td>
-              </tr>
-            @endforeach
-        </tbody>
-      </table>
-      @endif
-    </div>
-</div>
+@endif
 @endsection
 

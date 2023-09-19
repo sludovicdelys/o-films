@@ -20,7 +20,7 @@
                 @endauth
             </tr>
         </thead>
-        <tbody class="table-group-divider">
+        <tbody>
             @foreach ( $series as $serie)
                 <tr>
                     <td class="align-middle">{{ $serie->title }}</td>

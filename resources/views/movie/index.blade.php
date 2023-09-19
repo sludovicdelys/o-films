@@ -18,7 +18,7 @@
                 @endauth
             </tr>
         </thead>
-        <tbody class="table-group-divider">
+        <tbody>
             @foreach ( $movies as $movie )
                 <tr>
                     <td class="align-middle">{{ $movie->title }}</td>
