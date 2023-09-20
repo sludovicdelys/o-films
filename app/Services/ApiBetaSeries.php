@@ -33,10 +33,11 @@ class ApiBetaSeries
         ]);
         // On extrait les données de la réponse
         $apiData = $apiResponse->json()['show'];
+
         // On hydrate l'objet Show avec les données récupérées
         $serie->title = $apiData['title'];
         $serie->year = $apiData['creation'];
-        $serie->review = $apiData['description'];
+        $serie->review= $apiData['description'];
         $serie->seasons = $apiData['seasons'];
         $serie->stars = $apiData['notes']['mean'];
 

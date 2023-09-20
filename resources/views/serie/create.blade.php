@@ -6,21 +6,19 @@
 <div class="row">
     <div class="col-md-7 col-lg-8 m-auto">
         @if ($errors->any())
+        <pre> <?php dump($errors) ?> </pre>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <div class="alert-header">
                 <h4>Une ou plusieurs erreurs sont présentes dans le formulaire</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <!-- 
-            //TODO : Style error message list
             <div class="alert-body">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div> 
-            -->
+            </div>
         </div>
         @endif
         <form action="{{ route('series.store') }}" method="post" class="row needs-validation" novalidate>
@@ -28,12 +26,12 @@
             <input type="hidden" name="id" value="{{ $serie->id }}">
             <div class="col-12 mb-3">
                 <label for="title" class="form-label">Titre</label>
-                <input value="{{ old('title', $serie->title) }}" name="title" class="form-control" name="title" id="title" required>
+                <input value="{{ old('title', $serie->title) }}" name="title" class="form-control" id="title" required>
                 <div class="invalid-feedback">Veuillez fournir un titre.</div>
             </div>
             <div class="col-12 mb-3">
                 <label for="year" class="form-label">Année de sortie</label>
-                <input value="{{ old('year'), $serie->year }}" type="year" class="form-control" name="year" id="year" required>
+                <input value="{{ old('year', $serie->year )}}" name="year" class="form-control" type="number" required>
                 <div class="invalid-feedback">Veuillez fournir l'année de sortie.</div>
             </div>
             <div class="col-md-6 mb-3">
@@ -58,8 +56,8 @@
                 </select>
             </div>
             <div class="col-12 mb-3">
-                <label class="form-label">Resumé</label>
-                <textarea value="{{ old('review'), $serie->review }}" class="form-control" id="review" rows="3" required></textarea>
+                <label for="review" class="form-label">Resumé</label>
+                <textarea class="form-control" name="review" id="review" rows="3">{{ old('review', $serie->review )}}</textarea>
                 <div class="invalid-feedback">Veuillez fournir un résumé.</div>
             </div>
             <div class="col-12 mb-3">
