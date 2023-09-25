@@ -36,12 +36,12 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label for="seasons" class="form-label">Nombre de saisons</label>
-                <input value="{{ old('seasons', $serie->seasons )}}" name="seasons" min="0" max="5" class="form-control" type="number" required>
+                <input value="{{ old('seasons', $serie->seasons )}}" name="seasons" min="0" class="form-control" type="number" required>
                 <div class="invalid-feedback">Veuillez fournir le nombre de saisons.</div>
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label">Nombre d'épisodes par saison</label>
-                <input value="{{ old('episodesPerSeason', $serie->episodesPerSeason )}}" name="episodesPerSeason" min="0" max="10" class="form-control" type="number" required>
+                <input value="{{ old('episodesPerSeason', $serie->episodesPerSeason )}}" name="episodesPerSeason" min="0" class="form-control" type="number" required>
                 <div class="invalid-feedback">Veuillez fournir le nombre d'épisodes par saison.</div>
             </div>
             <div class="col-12 mb-3">

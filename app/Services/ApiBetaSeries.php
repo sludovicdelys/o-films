@@ -45,7 +45,7 @@ class ApiBetaSeries
         // en faisant la moyenne des épisodes par saison (information fournie dans la clé "seasons_details")
         // Pour celà nous pouvons nous servir des collections de Laravel et de la methode avg:
         // https://laravel.com/docs/8.x/collections#method-avg
-        $serie->episodesPerSeason = collect($apiData['seasons_details'])->avg('episodes');
+        $serie->episodesPerSeason = round(collect($apiData['seasons_details'])->avg('episodes'));
 
         // L'API nous donne les genres sous la forme d'un tableau, hors notre application ne gère qu'un seul genre.
         // On va donc prendre le premier élément du tableau.
