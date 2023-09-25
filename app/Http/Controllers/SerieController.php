@@ -104,12 +104,15 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Serie $serie)
+    public function edit($id)
     {
+
+        $serie = Serie::find($id) ?? new Serie();
+
         return view('serie.create', [
+            "serie" => $serie,
             "countries" => Country::all(),
-            "genres" => Genre::all(),
-            "serie" => $serie
+            "genres" => Genre::all()
         ]);
     }
 
@@ -122,7 +125,34 @@ class SerieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'year' => 'required|numeric',
+            'seasons' => 'required|numeric',
+            'episodesPerSeason' => 'required|numeric',
+            'stars' => 'required|numeric',
+            'review' => 'required',
+            'country_id' => 'required|exists:countries,id',
+            'genre_id' => 'required|exists:genres,id'
+        ]);
+
+        if ($id !== null) {
+            $serie = Serie::find($id) ?? new Serie();
+        } else {
+            $serie = new Serie();
+        }
+
+        $serie->title = $request->title;
+        $serie->year = $request->year;
+        $serie->seasons = $request->seasons;
+        $serie->episodesPerSeason = $request->episodesPerSeason;
+        $serie->stars = $request->stars;
+        $serie->review = $request->review;
+        $serie->country_id = $request->country_id;
+        $serie->genre_id = $request->genre_id;
+        $serie->save();
+
+        return redirect()->route('series.index');
     }
 
     /**
