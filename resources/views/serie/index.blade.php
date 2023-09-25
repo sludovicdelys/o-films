@@ -45,7 +45,7 @@
                                         <form action="{{ route('series.destroy', ['series' => $serie->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="dropdown-item" >Supprimer</a>
+                                            <button class="dropdown-item" >Supprimer</button>
                                         </form>
                                     </li>
                                 </ul>
