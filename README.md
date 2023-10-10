@@ -1,66 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# O'films 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview 
 
-## About Laravel
+During my studies as a software engineer with O'clock, we had the opportunity to work on a variety of small projects with a diverse tool box of programming languages, technologies and frameworks. 🧰
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+One of those programming languages was PHP, and for this project we were tasked to create a plateform with the Laravel framework.🐘
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+We were given an ER schema that we had to respect as much as possible. We were provided a style guide so that we could create a simple but elegant user interface with the [Bulma](https://bulma.io/) framework. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+You can find below the instructions that we received : 
 
-## Learning Laravel
+- display a list of films 
+- display a list of series
+- display a page with a form that allows the user to import a serie or a film from an external API called [API BetaSeries](https://www.betaseries.com/en/api/)
+- generate migrations without including foreign keys and without using database tests 
+- BONUS : Include foreign keys when generating migrations 
+- BONUS : Build associations between all the database tables inside their corresponding models : movie, show, country, and genre
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Prerequesite 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+For a local installation : 
 
-## Laravel Sponsors
+- MySQL 8.0+
+- PHP 8.0+
+- [Composer](https://getcomposer.org/)
+- [BetaSeries API key](https://www.betaseries.com/en/api/) 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Installation 
 
-### Premium Partners
+1. First you should clone the project and install all the dependencies you will need to run this project locally. 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+```composer install``` & ```npm install```
 
-## Contributing
+2. If you've successful installed MySQL your next step will be to create a database that you will name and provide user rights as you wish.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. Next, a copy of the `.env.example` file, modify the following environment variables, add your API BetaSeries key and rename the file as `.env` 
 
-## Code of Conduct
+```
+APP_KEY= 
+BETASERIES_API_KEY=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+🚨 The APP_KEY environment variable is very important for the security of your application as it used for all encrypted cookies, including session cookies. 🍪
 
-## Security Vulnerabilities
+4. Therefore, don't forget to generate a new key ➡️ ```php artisan key:generate```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. Once this is done you can start run the migrations that I have provided for this project with this command : 
 
-## License
+```
+ php artisan migrate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6. You can check that your database has been successfully populated 
+
+```
+php artisan db mysql
+```
+
+7. You can start MySQL server
+
+```
+mysql.server start
+```
+
+8. Tadaaa ✨ Everything should be running smoothly.
+
+
+
+
+
+
+
+
+
