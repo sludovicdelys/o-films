@@ -44,29 +44,32 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-🚨 The APP_KEY environment variable is very important for the security of your application as it used for all encrypted cookies, including session cookies. 🍪
+**🚨 The APP_KEY environment variable is very important for the security of your application as it used for all encrypted cookies, including session cookies. 🍪**
 
-4. Therefore, don't forget to generate a new key ➡️ ```php artisan key:generate```
+4. Therefore, don't forget to generate a new key 
+➡️ ```php artisan key:generate```
 
 5. Once this is done you can start run the migrations that I have provided for this project with this command : 
-
 ```
  php artisan migrate
 ```
 
-6. You can check that your database has been successfully populated 
-
+6. You can check that your database has been successfully constructed
 ```
 php artisan db mysql
 ```
 
-7. You can start MySQL server
+7. Next, you will populate your database with the seeders that I have already written for this project.
+```
+php artisan db:seed
+```
 
+8. You can start MySQL server
 ```
 mysql.server start
 ```
 
-8. Tadaaa ✨ Everything should be running smoothly.
+9. Tadaaa ✨ Everything should be running smoothly.
 
 
 
