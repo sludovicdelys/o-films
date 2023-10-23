@@ -23,6 +23,7 @@ For a local installation :
 
 - MySQL 8.0+
 - PHP 8.0+
+- Node.js 9.5+
 - [Composer](https://getcomposer.org/)
 - [BetaSeries API key](https://www.betaseries.com/en/api/) 
 
