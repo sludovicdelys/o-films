@@ -70,7 +70,21 @@ php artisan db:seed
 mysql.server start
 ```
 
-9. Tadaaa ✨ Everything should be running smoothly.
+## Running the app 
+
+You can run the project with : 
+```
+php artisan serve
+```
+
+Tadaaa ✨ Everything should be running smoothly over[here](http://127.0.0.1:8000). . 
+
+## Play around
+
+Use Anuk's logins credentials to access the rest of the application's features : 
+- email => anuk@oclock.com
+- password => imgreyandimhandsome
+
 
 
 
