@@ -6,7 +6,6 @@
 <div class="row">
     <div class="col-md-7 col-lg-8 m-auto">
         @if ($errors->any())
-        <pre> <?php dump($errors) ?> </pre>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <div class="alert-header">
                 <h4>Une ou plusieurs erreurs sont présentes dans le formulaire</h4>

@@ -12,7 +12,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view('movie/index', [
+        return view('movie.index', [
             "movies" => $movies
         ]);
     }
@@ -21,9 +21,9 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('movie/create', [
+        return view('movie.create', [
             "movie" => new Movie(),
             "genres" => Genre::all(),
             "countries" => Country::all(),
@@ -49,12 +49,10 @@ class MovieController extends Controller
             'genre_id' => 'required|exists:genres,id'
         ]);
         
-        $id = $request->input("id");
-        
-        if ($id == "") {
-            $movie = new Movie();
+        if ($request->id !== null) {
+            $movie = Movie::find($request->id) ?? new Movie();
         } else {
-            $movie = Movie::find($id);
+            $movie = new Movie();
         }
         
         // On doit vérifier si la requete contient un id 
@@ -71,7 +69,7 @@ class MovieController extends Controller
         $movie->genre_id = $request->genre_id;
         $movie->save();
 
-        return redirect()->route('movies');
+        return redirect()->route('movies.index');
     }
 
     /**
@@ -93,14 +91,49 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        $movie = Movie::find($id);
+        $movie = Movie::find($id) ?? new Movie();
 
         // appel la view formulaire en envoyant la liste des genres et des pays
-        return view('movie/edit', [
+        return view('movie.create', [
             'movie' => $movie,
             'genres' => Genre::all(),
             'countries' => Country::all()
         ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id) {
+
+        $request->validate([
+            'title' => 'required',
+            'year' => 'required|numeric',
+            'stars' => 'required|numeric',
+            'review' => 'required|min:20',
+            'country_id' => 'required|exists:countries,id',
+            'genre_id' => 'required|exists:genres,id'
+        ]);
+
+        if ($id !== null) {
+            $movie = Movie::find($id) ?? new Movie();
+        } else {
+            $movie = new Movie();
+        }
+
+        $movie->title = $request->title;
+        $movie->year = $request->year;
+        $movie->stars = $request->stars;
+        $movie->review = $request->review;
+        $movie->country_id = $request->country_id;
+        $movie->genre_id = $request->genre_id;
+        $movie->save();
+
+        return redirect()->route('series.index');
     }
 
     /**
