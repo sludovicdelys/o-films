@@ -1,5 +1,7 @@
 # O'films 
 
+https://github.com/sludovicdelys/o-films/assets/74900669/d6c338cf-f0e3-4397-b16c-b0d542e7f46b
+
 ## Overview 
 
 During my studies as a software engineer with O'clock, we had the opportunity to work on a variety of small projects with a diverse tool box of programming languages, technologies and frameworks. 🧰
