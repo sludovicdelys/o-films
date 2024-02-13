@@ -18,11 +18,11 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a href="{{ route('movies.index') }}" class="nav-link">Films</a></li>
                     @auth
-                        <li class="nav-item"><a href="{{ route('movies.create') }}" class="nav-link ">Inserer un film</a></li>
-                        <li class="nav-item"><a href="{{ route('series.create') }}" class="nav-link">Inserer une série</a></li>
+                        <li class="nav-item"><a href="{{ route('movies.create') }}" class="nav-link ">Insérer un film</a></li>
+                        <li class="nav-item"><a href="{{ route('series.create') }}" class="nav-link">Insérer une série</a></li>
                         <li class="nav-item"><a href="{{ route('series.searchApi') }}" class="nav-link">Importer une série</a></li>
                     @endauth
-                    <li class="nav-item"><a href="{{ route('series.index') }}" class="nav-link">Series</a></li>
+                    <li class="nav-item"><a href="{{ route('series.index') }}" class="nav-link">Séries</a></li>
                 </ul>
                 @guest
                     <a href="{{ route('auth.login') }}" class="nav-link my-2 my-md-0 has-text-primary-dark">
@@ -35,7 +35,7 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Dropdown navigation">{{ auth()->user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a href="{{ route('auth.logout') }}" class="dropdown-item">Logout</a></li>
+                            <li><a href="{{ route('auth.logout') }}" class="dropdown-item">Déconnexion</a></li>
                         </ul>
                     </li>
                 </ul>  
